@@ -1,10 +1,11 @@
 
 .card {
-    width: 20em; 
-    height: 25em; 
-    padding-left: 1.5em; 
+    justify-content: left;
+    width: 15em; 
+    padding-left: 1em; 
     padding-top: 1.5em; 
-    margin: .5em;
+    padding-bottom: .5em;
+    margin-left: .25em; 
     background-color: #2b405e;
     border-radius: 7px;
     text-align: left;
@@ -12,11 +13,11 @@
     
 }
 .bigcard {
-    min-width: 20em; 
-    height: 25em; 
-    padding-left: 1.5em; 
+    min-width: 15em; 
+    height: 15em; 
+    padding-left: 1em; 
     padding-top: 1.5em; 
-    margin: .5em;
+    margin: 2.5px;
     background-color: #2b405e;
     border-radius: 7px;
     text-align: left;
@@ -26,20 +27,12 @@
 }
 .section {
     display: flex;
+    justify-content: left;
+    margin-left: .25em;
     overflow-x: auto;
-    scrollbar-color: white #2b405e;
+    
 }
-.section::-webkit-scrollbar{
-    width: 10px;
-}
-.section::-webkit-scrollbar-track{
-    background: #2b405e; 
-   
-}
-.section::-webkit-scrollbar-thumb {
-    background: white;
 
-}
 
 
 
@@ -47,12 +40,20 @@ h1{
     margin-top: -20px;
     
 }
+h1.title{
+    
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 10px; 
+    margin-bottom: 10px; 
+    
+}
 .biggertext{
-    font-size: 38px;
+    font-size: 35px;
 }
 .divider{
-    margin-left: .5em;
-    margin-bottom: 0; 
+    margin-left: 10px;
+    margin-bottom: 5px; 
 }
 h1.loading{ 
    
@@ -71,3 +72,7 @@ h4.date{
 h5{
     margin-top: -20px; 
 }
+h2 {
+    margin-top: -1em; 
+}
+

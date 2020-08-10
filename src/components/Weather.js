@@ -16,7 +16,8 @@ class Weather extends React.Component {
             year: undefined,
             data: [],
             data2: [],
-            data3: []
+            data3: [],
+
         }
 
     }
@@ -64,8 +65,8 @@ class Weather extends React.Component {
         console.log(data3);
 
         this.setState({
-            latitude: latitude,
-            longitude: longitude,
+            latitude: latitude.toFixed(2),
+            longitude: longitude.toFixed(2),
             city: data[0].city_name,
             temp: data[0].temp,
             date: date,
@@ -74,6 +75,8 @@ class Weather extends React.Component {
             data: data[0],
             data2: data2.data,
             data3: data3.data,
+
+
             isLoaded: true
         });
     }
@@ -103,41 +106,55 @@ class Weather extends React.Component {
 
     }
     render() {
-        const { latitude, longitude, city, isLoaded, temp, date, month, year, data, data2, data3 } = this.state;
+        const { latitude, longitude, city, isLoaded, temp, date, month, year, data, data3 } = this.state;
+
         const list = [];
-        for (let i = 1; i < data3.length; i++) {
+        const list2 = [];
+        for (let i = 1; i < data3.length - 8; i++) {
             list.push(
                 <div className='bigcard' key={i}>
-                    <h4 className='date'>{month}&nbsp;/&nbsp;{date + i}&nbsp;/&nbsp;{year}</h4>
+                    <h4 className='date'>{month}&nbsp;/&nbsp;{date + i}&nbsp;/&nbsp;{year}</h4><br></br><br></br>
                     <h1 className='body'>High: {data3[i].high_temp}</h1>
                     <h1>Low: {data3[i].low_temp}</h1>
+                    <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
+                    <h2 style={{ marginTop: -20 }}>Precipitation: {data3[i].precip * 100}&nbsp;%</h2>
+                </div>);
+        }
+        for (let i = 8; i < data3.length - 1; i++) {
+            list2.push(
+                <div className='bigcard' key={i}>
+                    <h4 className='date'>{month}&nbsp;/&nbsp;{date + i}&nbsp;/&nbsp;{year}</h4><br></br><br></br>
+                    <h1 className='body'>High: {data3[i].high_temp}</h1>
+                    <h1>Low: {data3[i].low_temp}</h1>
+                    <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
+                    <h2 style={{ marginTop: -20 }}>Precipitation: {data3[i].precip * 100}&nbsp;%</h2>
                 </div>);
         }
         if (isLoaded) {
 
             return (
                 <div>
+                    <div>
+                        <h1 className='title'>Weather.io</h1>
+                    </div>
+
                     <div className="card">
                         <h4 className='date'>{month}&nbsp;/&nbsp;{date}&nbsp;/&nbsp;{year}</h4>
                         <h4>Current weather in</h4>
                         <h1 className='biggertext'>{city}, {data.state_code}</h1>
                         <h4 className='lat'>Lat: {latitude}&nbsp;  Lon: {longitude}</h4>
                         <h1 className='body biggertext'>{temp}°F </h1>
-                        <h1>{data.weather.description}</h1>
+                        <h2>{data.weather.description}</h2>
                     </div >
                     <div>
-                        <h4 style={{ marginLeft: 20 }}>Extended forcast for</h4>
+                        <h4 style={{ marginLeft: 10 }}>Extended forcast for</h4>
                         <h1 className='biggertext divider'>{city}, {data.state_code}</h1>
                     </div>
                     <div className='section'>
-
                         {list}
-                        {/* {data3.map(obj => (
-                            <div className='bigcard' key={obj}>
-                                <h4 className='date'>{month}&nbsp;/&nbsp;{date}&nbsp;/&nbsp;{year}</h4>
-                            </div>
-                        ))} */}
-
+                    </div>
+                    <div className='section'>
+                        {list2}
                     </div>
 
 
