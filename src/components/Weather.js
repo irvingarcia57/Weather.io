@@ -113,7 +113,7 @@ class Weather extends React.Component {
         for (let i = 1; i < data3.length - 8; i++) {
             list.push(
                 <div className='bigcard' key={i}>
-                    <h4 className='date'>{month}&nbsp;/&nbsp;{date + i}&nbsp;/&nbsp;{year}</h4><br></br><br></br>
+                    <h4 className='date'>{data3[i].valid_date}</h4><br></br><br></br>
                     <h1 className='body'>High: {data3[i].high_temp}</h1>
                     <h1>Low: {data3[i].low_temp}</h1>
                     <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
@@ -123,7 +123,7 @@ class Weather extends React.Component {
         for (let i = 8; i < data3.length - 1; i++) {
             list2.push(
                 <div className='bigcard' key={i}>
-                    <h4 className='date'>{month}&nbsp;/&nbsp;{date + i}&nbsp;/&nbsp;{year}</h4><br></br><br></br>
+                    <h4 className='date'>{data3[i].valid_date}</h4><br></br><br></br>
                     <h1 className='body'>High: {data3[i].high_temp}</h1>
                     <h1>Low: {data3[i].low_temp}</h1>
                     <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
@@ -139,7 +139,7 @@ class Weather extends React.Component {
                     </div>
 
                     <div className="card">
-                        <h4 className='date'>{month}&nbsp;/&nbsp;{date}&nbsp;/&nbsp;{year}</h4>
+                        <h4 className='date'>{data3[0].valid_date}</h4>
                         <h4>Current weather in</h4>
                         <h1 className='biggertext'>{city}, {data.state_code}</h1>
                         <h4 className='lat'>Lat: {latitude}&nbsp;  Lon: {longitude}</h4>
