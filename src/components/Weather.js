@@ -106,7 +106,7 @@ class Weather extends React.Component {
 
     }
     render() {
-        const { latitude, longitude, city, isLoaded, temp, date, month, year, data, data3 } = this.state;
+        const { latitude, longitude, city, isLoaded, temp, data, data3 } = this.state;
 
         const list = [];
         const list2 = [];
