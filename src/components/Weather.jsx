@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles.scss';
+import '../index.css';
 
 class Weather extends React.Component {
     constructor(props) {
@@ -109,33 +109,33 @@ class Weather extends React.Component {
         const { latitude, longitude, city, isLoaded, temp, data, data3 } = this.state;
 
         const list = [];
-        const list2 = [];
+        //const list2 = [];
         for (let i = 1; i < data3.length - 8; i++) {
             list.push(
-                <div className='bigcard' key={i}>
+                <div className='bigcard columns-7' key={i}>
                     <h4 className='date'>{data3[i].valid_date}</h4><br></br><br></br>
                     <h1 className='body'>High: {data3[i].high_temp}</h1>
                     <h1>Low: {data3[i].low_temp}</h1>
                     <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
-                    <h2 style={{ marginTop: -20 }}>Precipitation: {data3[i].precip * 100}&nbsp;%</h2>
+                    <h2 style={{ marginTop: -20 }}>Precipitation: {parseFloat(data3[i].precip * 100).toFixed(0)}%</h2>
                 </div>);
         }
-        for (let i = 8; i < data3.length - 1; i++) {
-            list2.push(
-                <div className='bigcard' key={i}>
-                    <h4 className='date'>{data3[i].valid_date}</h4><br></br><br></br>
-                    <h1 className='body'>High: {data3[i].high_temp}</h1>
-                    <h1>Low: {data3[i].low_temp}</h1>
-                    <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
-                    <h2 style={{ marginTop: -20 }}>Precipitation: {data3[i].precip * 100}&nbsp;%</h2>
-                </div>);
-        }
+        // for (let i = 8; i < data3.length - 1; i++) {
+        //     list2.push(
+        //         <div className='bigcard' key={i}>
+        //             <h4 className='date'>{data3[i].valid_date}</h4><br></br><br></br>
+        //             <h1 className='body'>High: {data3[i].high_temp}</h1>
+        //             <h1>Low: {data3[i].low_temp}</h1>
+        //             <h2 style={{ marginTop: -20 }}>{data3[i].weather.description}</h2>
+        //             <h2 style={{ marginTop: -20 }}>Precipitation: {parseFloat(data3[i].precip * 100).toFixed(2)}&nbsp;%</h2>
+        //         </div>);
+        // }
         if (isLoaded) {
 
             return (
-                <div>
-                    <div>
-                        <h1 className='title'>Weather.io</h1>
+                <div className='bg-red-500'>
+                    <div className='bg-red-500' >
+                        <h1 className='title text-center'>Weather.io</h1>
                     </div>
 
                     <div className="card">
@@ -153,9 +153,9 @@ class Weather extends React.Component {
                     <div className='section'>
                         {list}
                     </div>
-                    <div className='section'>
+                    {/* <div className='section'>
                         {list2}
-                    </div>
+                    </div> */}
 
 
                 </div >
